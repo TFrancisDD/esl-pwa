@@ -1,0 +1,9 @@
+:root { --grass-dark:#1B4332; --chalk:#F1FAEE; --yellow:#FFD60A; --navy:#14213D; }
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body, #root { margin:0; padding:0; height:100%; }
+body {
+  font-family: system-ui, -apple-system, 'Nunito', sans-serif;
+  background: var(--grass-dark);
+  color: var(--chalk);
+  background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0 2px, transparent 2px 40px);
+}

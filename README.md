@@ -124,3 +124,8 @@ Verify production **signed out, in a private window.** Checking from a logged-in
 proves nothing: Vercel Authentication is invisible to the account that owns the project.
 
 Tracked as `F-06` on story `P0-E1-S4`.
+
+## Pipeline
+
+Git-connected 2026-08-12. Pushes to `main` deploy to production automatically; the
+direct-upload path is retired.

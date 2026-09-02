@@ -11,3 +11,6 @@ npm-debug.log*
 yarn-error.log*
 .vercel
 .env*
+
+# build artifact from `npm run test:data`
+.tmp-test.mjs

@@ -1,0 +1,740 @@
+{
+  "schemaVersion": 2,
+  "generatedFrom": "data/Group1_Audio_Image_Corpus.csv",
+  "gating": {
+    "currentGroup": "G1",
+    "allowPriorGroups": true
+  },
+  "groups": {
+    "G1": {
+      "id": "G1",
+      "number": 1,
+      "letters": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "nameEs": "Grupo 1 — A B C D",
+      "media": {
+        "audioBase": "/audio/group1/",
+        "imageBase": "/img/group1/",
+        "video": {
+          "provider": "youtube",
+          "id": null,
+          "orientation": "portrait"
+        }
+      },
+      "entryCount": 28,
+      "entries": [
+        {
+          "id": "LTR-A-NAME",
+          "group": "G1",
+          "letter": "A",
+          "part": 1,
+          "partNameEs": "El nombre",
+          "shape": "name",
+          "clipCount": 1,
+          "label": "A",
+          "words": [],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "LTR-B-NAME",
+          "group": "G1",
+          "letter": "B",
+          "part": 1,
+          "partNameEs": "El nombre",
+          "shape": "name",
+          "clipCount": 1,
+          "label": "B",
+          "words": [],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "LTR-C-NAME",
+          "group": "G1",
+          "letter": "C",
+          "part": 1,
+          "partNameEs": "El nombre",
+          "shape": "name",
+          "clipCount": 1,
+          "label": "C",
+          "words": [],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "LTR-D-NAME",
+          "group": "G1",
+          "letter": "D",
+          "part": 1,
+          "partNameEs": "El nombre",
+          "shape": "name",
+          "clipCount": 1,
+          "label": "D",
+          "words": [],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "LTR-A-S2",
+          "group": "G1",
+          "letter": "A",
+          "part": 2,
+          "partNameEs": "El sonido",
+          "shape": "sound",
+          "clipCount": 3,
+          "label": "ei",
+          "words": [
+            {
+              "role": "word1",
+              "en": "angel",
+              "es": null,
+              "imageId": "angel",
+              "imageFile": "a-e/angel.jpeg"
+            },
+            {
+              "role": "word2",
+              "en": "ape",
+              "es": null,
+              "imageId": "ape",
+              "imageFile": "a-e/ape.jpg"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "LTR-B-S1",
+          "group": "G1",
+          "letter": "B",
+          "part": 2,
+          "partNameEs": "El sonido",
+          "shape": "sound",
+          "clipCount": 3,
+          "label": "b",
+          "words": [
+            {
+              "role": "word1",
+              "en": "banana",
+              "es": null,
+              "imageId": "banana",
+              "imageFile": "a-e/banana.jpeg"
+            },
+            {
+              "role": "word2",
+              "en": "ball",
+              "es": null,
+              "imageId": "ball",
+              "imageFile": "a-e/ball.jpeg"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "LTR-C-S1",
+          "group": "G1",
+          "letter": "C",
+          "part": 2,
+          "partNameEs": "El sonido",
+          "shape": "sound",
+          "clipCount": 3,
+          "label": "k",
+          "words": [
+            {
+              "role": "word1",
+              "en": "color",
+              "es": null,
+              "imageId": "color",
+              "imageFile": "a-e/color.png"
+            },
+            {
+              "role": "word2",
+              "en": "cat",
+              "es": null,
+              "imageId": "cat",
+              "imageFile": "a-e/cat.jpeg"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "LTR-C-S2",
+          "group": "G1",
+          "letter": "C",
+          "part": 2,
+          "partNameEs": "El sonido",
+          "shape": "sound",
+          "clipCount": 3,
+          "label": "s",
+          "words": [
+            {
+              "role": "word1",
+              "en": "cell",
+              "es": null,
+              "imageId": "cell",
+              "imageFile": "a-e/cell.jpeg"
+            },
+            {
+              "role": "word2",
+              "en": "city",
+              "es": null,
+              "imageId": "city",
+              "imageFile": "a-e/city.jpg"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "LTR-D-S1",
+          "group": "G1",
+          "letter": "D",
+          "part": 2,
+          "partNameEs": "El sonido",
+          "shape": "sound",
+          "clipCount": 3,
+          "label": "d",
+          "words": [
+            {
+              "role": "word1",
+              "en": "doctor",
+              "es": null,
+              "imageId": "doctor",
+              "imageFile": "a-e/doctor.webp"
+            },
+            {
+              "role": "word2",
+              "en": "dog",
+              "es": null,
+              "imageId": "dog",
+              "imageFile": "a-e/dog.webp"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "U3-AT",
+          "group": "G1",
+          "letter": "A",
+          "part": 3,
+          "partNameEs": "Las sílabas y palabras",
+          "shape": "word",
+          "clipCount": 1,
+          "label": "at",
+          "words": [],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "U3-AN",
+          "group": "G1",
+          "letter": "A",
+          "part": 3,
+          "partNameEs": "Las sílabas y palabras",
+          "shape": "word",
+          "clipCount": 1,
+          "label": "an",
+          "words": [],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "U3-AM",
+          "group": "G1",
+          "letter": "A",
+          "part": 3,
+          "partNameEs": "Las sílabas y palabras",
+          "shape": "word",
+          "clipCount": 1,
+          "label": "am",
+          "words": [],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "U2-BA",
+          "group": "G1",
+          "letter": "B",
+          "part": 3,
+          "partNameEs": "Las sílabas y palabras",
+          "shape": "combination",
+          "clipCount": 3,
+          "label": "ba",
+          "words": [
+            {
+              "role": "word1",
+              "en": "bat",
+              "es": null,
+              "imageId": "bat",
+              "imageFile": "a-e/bat.jpg"
+            },
+            {
+              "role": "word2",
+              "en": "bag",
+              "es": null,
+              "imageId": "bag",
+              "imageFile": "a-e/bag.jpeg"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "U2-BE",
+          "group": "G1",
+          "letter": "B",
+          "part": 3,
+          "partNameEs": "Las sílabas y palabras",
+          "shape": "combination",
+          "clipCount": 3,
+          "label": "be",
+          "words": [
+            {
+              "role": "word1",
+              "en": "bed",
+              "es": null,
+              "imageId": "bed",
+              "imageFile": "a-e/bed.jpeg"
+            },
+            {
+              "role": "word2",
+              "en": "bell",
+              "es": null,
+              "imageId": "bell",
+              "imageFile": "a-e/bell.jpeg"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "U2-BI",
+          "group": "G1",
+          "letter": "B",
+          "part": 3,
+          "partNameEs": "Las sílabas y palabras",
+          "shape": "combination",
+          "clipCount": 3,
+          "label": "bi",
+          "words": [
+            {
+              "role": "word1",
+              "en": "big",
+              "es": null,
+              "imageId": "big",
+              "imageFile": "a-e/big.png"
+            },
+            {
+              "role": "word2",
+              "en": "bin",
+              "es": null,
+              "imageId": "bin",
+              "imageFile": "a-e/bin.png"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "U2-BO",
+          "group": "G1",
+          "letter": "B",
+          "part": 3,
+          "partNameEs": "Las sílabas y palabras",
+          "shape": "combination",
+          "clipCount": 3,
+          "label": "bo",
+          "words": [
+            {
+              "role": "word1",
+              "en": "bot",
+              "es": null,
+              "imageId": "bot",
+              "imageFile": "a-e/bot.png"
+            },
+            {
+              "role": "word2",
+              "en": "bottle",
+              "es": null,
+              "imageId": "bottle",
+              "imageFile": "a-e/bottle.jpeg"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "U2-BU",
+          "group": "G1",
+          "letter": "B",
+          "part": 3,
+          "partNameEs": "Las sílabas y palabras",
+          "shape": "combination",
+          "clipCount": 3,
+          "label": "bu",
+          "words": [
+            {
+              "role": "word1",
+              "en": "bus",
+              "es": null,
+              "imageId": "bus",
+              "imageFile": "a-e/bus.jpg"
+            },
+            {
+              "role": "word2",
+              "en": "bug",
+              "es": null,
+              "imageId": "bug",
+              "imageFile": "a-e/bug.jpeg"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "U2-CA",
+          "group": "G1",
+          "letter": "C",
+          "part": 3,
+          "partNameEs": "Las sílabas y palabras",
+          "shape": "combination",
+          "clipCount": 3,
+          "label": "ca",
+          "words": [
+            {
+              "role": "word1",
+              "en": "cat",
+              "es": null,
+              "imageId": "cat",
+              "imageFile": "a-e/cat.jpeg"
+            },
+            {
+              "role": "word2",
+              "en": "camera",
+              "es": null,
+              "imageId": "camera",
+              "imageFile": "a-e/camera.webp"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "U2-CI",
+          "group": "G1",
+          "letter": "C",
+          "part": 3,
+          "partNameEs": "Las sílabas y palabras",
+          "shape": "combination",
+          "clipCount": 3,
+          "label": "ci",
+          "words": [
+            {
+              "role": "word1",
+              "en": "city",
+              "es": null,
+              "imageId": "city",
+              "imageFile": "a-e/city.jpg"
+            },
+            {
+              "role": "word2",
+              "en": "circus",
+              "es": null,
+              "imageId": "circus",
+              "imageFile": "a-e/circus.jpg"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "U2-CE",
+          "group": "G1",
+          "letter": "C",
+          "part": 3,
+          "partNameEs": "Las sílabas y palabras",
+          "shape": "combination",
+          "clipCount": 3,
+          "label": "ce",
+          "words": [
+            {
+              "role": "word1",
+              "en": "cell",
+              "es": null,
+              "imageId": "cell",
+              "imageFile": "a-e/cell.jpeg"
+            },
+            {
+              "role": "word2",
+              "en": "center",
+              "es": null,
+              "imageId": "center",
+              "imageFile": "a-e/center.png"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "U2-CO",
+          "group": "G1",
+          "letter": "C",
+          "part": 3,
+          "partNameEs": "Las sílabas y palabras",
+          "shape": "combination",
+          "clipCount": 3,
+          "label": "co",
+          "words": [
+            {
+              "role": "word1",
+              "en": "comic",
+              "es": null,
+              "imageId": "comic",
+              "imageFile": "a-e/comic.jpg"
+            },
+            {
+              "role": "word2",
+              "en": "color",
+              "es": null,
+              "imageId": "color",
+              "imageFile": "a-e/color.png"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "U2-CU",
+          "group": "G1",
+          "letter": "C",
+          "part": 3,
+          "partNameEs": "Las sílabas y palabras",
+          "shape": "combination",
+          "clipCount": 3,
+          "label": "cu",
+          "words": [
+            {
+              "role": "word1",
+              "en": "cup",
+              "es": null,
+              "imageId": "cup",
+              "imageFile": "a-e/cup.jpeg"
+            },
+            {
+              "role": "word2",
+              "en": "cut",
+              "es": null,
+              "imageId": "cut",
+              "imageFile": "a-e/cut.png"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "U2-DA",
+          "group": "G1",
+          "letter": "D",
+          "part": 3,
+          "partNameEs": "Las sílabas y palabras",
+          "shape": "combination",
+          "clipCount": 3,
+          "label": "da",
+          "words": [
+            {
+              "role": "word1",
+              "en": "dad",
+              "es": null,
+              "imageId": "dad",
+              "imageFile": "a-e/dad.png"
+            },
+            {
+              "role": "word2",
+              "en": "dance",
+              "es": null,
+              "imageId": "dance",
+              "imageFile": "a-e/Dance.png"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "U2-DE",
+          "group": "G1",
+          "letter": "D",
+          "part": 3,
+          "partNameEs": "Las sílabas y palabras",
+          "shape": "combination",
+          "clipCount": 3,
+          "label": "de",
+          "words": [
+            {
+              "role": "word1",
+              "en": "desk",
+              "es": null,
+              "imageId": "desk",
+              "imageFile": "a-e/desk.jpg"
+            },
+            {
+              "role": "word2",
+              "en": "dentist",
+              "es": null,
+              "imageId": "dentist",
+              "imageFile": "a-e/dentist.jpg"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "U2-DI",
+          "group": "G1",
+          "letter": "D",
+          "part": 3,
+          "partNameEs": "Las sílabas y palabras",
+          "shape": "combination",
+          "clipCount": 3,
+          "label": "di",
+          "words": [
+            {
+              "role": "word1",
+              "en": "dig",
+              "es": null,
+              "imageId": "dig",
+              "imageFile": "a-e/Dig.png"
+            },
+            {
+              "role": "word2",
+              "en": "dictionary",
+              "es": null,
+              "imageId": "dictionary",
+              "imageFile": "a-e/dictionary.jpg"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "U2-DO",
+          "group": "G1",
+          "letter": "D",
+          "part": 3,
+          "partNameEs": "Las sílabas y palabras",
+          "shape": "combination",
+          "clipCount": 3,
+          "label": "do",
+          "words": [
+            {
+              "role": "word1",
+              "en": "dog",
+              "es": null,
+              "imageId": "dog",
+              "imageFile": "a-e/dog.webp"
+            },
+            {
+              "role": "word2",
+              "en": "doctor",
+              "es": null,
+              "imageId": "doctor",
+              "imageFile": "a-e/doctor.webp"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "U2-DU",
+          "group": "G1",
+          "letter": "D",
+          "part": 3,
+          "partNameEs": "Las sílabas y palabras",
+          "shape": "combination",
+          "clipCount": 3,
+          "label": "du",
+          "words": [
+            {
+              "role": "word1",
+              "en": "duck",
+              "es": null,
+              "imageId": "duck",
+              "imageFile": "a-e/duck.webp"
+            },
+            {
+              "role": "word2",
+              "en": "dust",
+              "es": null,
+              "imageId": "dust",
+              "imageFile": "a-e/dust.jpeg"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        },
+        {
+          "id": "LTR-A-S1",
+          "group": "G1",
+          "letter": "A",
+          "part": 2,
+          "partNameEs": "El sonido",
+          "shape": "sound",
+          "clipCount": 3,
+          "label": "a",
+          "words": [
+            {
+              "role": "word1",
+              "en": "apple",
+              "es": null,
+              "imageId": "apple",
+              "imageFile": "a-e/apple.jpeg"
+            },
+            {
+              "role": "word2",
+              "en": "ant",
+              "es": null,
+              "imageId": "ant",
+              "imageFile": "a-e/ant.jpeg"
+            }
+          ],
+          "anchorEs": null,
+          "set": "P",
+          "playable": true
+        }
+      ]
+    }
+  }
+}

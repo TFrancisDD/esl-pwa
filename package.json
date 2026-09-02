@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:data": "node scripts/build-entries.mjs",
+    "test:data": "esbuild scripts/test-lib.mjs --bundle --platform=node --format=esm --outfile=.tmp-test.mjs --log-level=error && node .tmp-test.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

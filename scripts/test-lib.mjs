@@ -1,5 +1,6 @@
 import * as R from '../src/lib/registry.js'
 import * as A from '../src/lib/audio.js'
+import * as S from '../src/lib/storage.js'
 
 let pass = 0, fail = 0
 const t = (name, fn) => { try { fn(); pass++ } catch (e) { fail++; console.log('  FAIL ' + name + ' — ' + e.message) } }
@@ -59,6 +60,127 @@ t('every entry role resolves to a real clip path', () => {
   for (const e of R.entries()) for (const r of A.rolesFor(e.id)) ok(A.clip(e.id, r), `${e.id}/${r}`)
 })
 t('70 clips total', () => eq(R.entries().reduce((n, e) => n + e.clipCount, 0), 70))
+
+
+/* ================= P1-E3 Local State and Storage ================= */
+
+/* a Storage-shaped double we can make fail on demand */
+const fakeStore = (opts = {}) => {
+  const m = new Map()
+  return {
+    getItem: k => (opts.corrupt && m.has(k) ? '{not json' : (m.has(k) ? m.get(k) : null)),
+    setItem: (k, v) => { if (opts.full) throw new Error('QuotaExceededError'); m.set(k, String(v)) },
+    removeItem: k => { m.delete(k) },
+    keys: () => [...m.keys()]
+  }
+}
+
+/* ---- P1-E3-S1 versioned storage keys ---- */
+t('only three versioned keys exist', () =>
+  eq(Object.values(S.KEYS).sort(), ['esl_progress_v1', 'esl_prefs_v1', 'esl_teacher_v1'].sort()))
+t('every key carries a version suffix', () =>
+  ok(Object.values(S.KEYS).every(k => /_v\d+$/.test(k))))
+t('no key is written outside this module — an unversioned key is refused', () => {
+  S.useBackend(fakeStore())
+  throws(() => S.write('esl_progress', {}), 'UnknownKeyError')
+})
+t('a real session writes nothing but the three keys', () => {
+  const b = fakeStore(); S.useBackend(b)
+  S.recordAnswer('U2-BA', true); S.rate('U2-BA', 'got_it', '2026-09-01'); S.setPref('lang', 'es')
+  ok(b.keys().every(k => Object.values(S.KEYS).includes(k)), 'stray key: ' + b.keys())
+})
+t('a missing key reads as the default, not undefined', () => {
+  S.useBackend(fakeStore())
+  eq(S.progress(), { v: 1, groups: {} })
+})
+t('a corrupt key reads as the default and does not throw', () => {
+  const b = fakeStore({ corrupt: true }); S.useBackend(b)
+  b.setItem(S.KEYS.progress, 'whatever')
+  eq(S.progress(), { v: 1, groups: {} })
+})
+t('a full or disabled store returns false rather than throwing', () => {
+  S.useBackend(fakeStore({ full: true }))
+  eq(S.write(S.KEYS.prefs, { v: 1 }), false)
+})
+
+/* ---- P1-E3-S2 progress recording ---- */
+t('correct and incorrect are recorded per entry ID', () => {
+  S.useBackend(fakeStore())
+  S.recordAnswer('U2-BA', true); S.recordAnswer('U2-BA', true); S.recordAnswer('U2-BA', false)
+  eq(S.answersFor('U2-BA'), { right: 2, wrong: 1 })
+})
+t('entries do not bleed into each other', () => {
+  S.useBackend(fakeStore())
+  S.recordAnswer('U2-BA', true); S.recordAnswer('U2-BE', false)
+  eq([S.answersFor('U2-BA'), S.answersFor('U2-BE')], [{ right: 1, wrong: 0 }, { right: 0, wrong: 1 }])
+})
+t('progress survives a reload — same backend, fresh read', () => {
+  const b = fakeStore(); S.useBackend(b)
+  S.recordAnswer('U2-CI', true)
+  S.useBackend(b)                                  // simulates the page coming back
+  eq(S.answersFor('U2-CI'), { right: 1, wrong: 0 })
+})
+t('an unknown entry reads as zero, never undefined', () => {
+  S.useBackend(fakeStore())
+  eq(S.answersFor('U2-ZZ'), { right: 0, wrong: 0 })
+})
+t('a group the curriculum no longer offers is pruned — storage stays bounded', () => {
+  const b = fakeStore(); S.useBackend(b)
+  b.setItem(S.KEYS.progress, JSON.stringify({ v: 1, groups: { G9: { 'OLD-1': { right: 9, wrong: 9 } } } }))
+  S.recordAnswer('U2-BA', true)
+  eq(Object.keys(S.progress().groups), ['G1'])
+})
+
+/* ---- P1-E3-S3 teacher ratings ---- */
+t('a rating is written immediately, keyed by entry ID and date', () => {
+  S.useBackend(fakeStore())
+  S.rate('U2-BA', 'got_it', '2026-09-01')
+  eq(S.teacher().days['2026-09-01']['U2-BA'], ['got_it'])
+})
+t('a reload mid-session loses nothing', () => {
+  const b = fakeStore(); S.useBackend(b)
+  S.rate('U2-BA', 'got_it', '2026-09-01'); S.rate('U2-BA', 'struggled', '2026-09-01')
+  S.useBackend(b)
+  eq(S.ratingsFor('U2-BA', '2026-09-01'), ['got_it', 'struggled'])
+})
+t('the same entry on two days stays two records', () => {
+  S.useBackend(fakeStore())
+  S.rate('U2-BA', 'got_it', '2026-09-01'); S.rate('U2-BA', 'struggled', '2026-09-02')
+  eq([S.ratingsFor('U2-BA', '2026-09-01'), S.ratingsFor('U2-BA', '2026-09-02')], [['got_it'], ['struggled']])
+})
+t('an unknown rating throws a named error', () => {
+  S.useBackend(fakeStore())
+  throws(() => S.rate('U2-BA', 'maybe'), 'UnknownRatingError')
+})
+t('ratings export as readable text, in Spanish, with no IPA', () => {
+  S.useBackend(fakeStore())
+  S.rate('U2-BA', 'got_it', '2026-09-01'); S.rate('U2-BA', 'struggled', '2026-09-01')
+  const out = S.exportRatings()
+  ok(out.includes('2026-09-01'), 'has the date')
+  ok(out.includes('U2-BA'), 'has the entry ID')
+  ok(out.includes('lo logro 1') && out.includes('le costo 1'), 'has readable counts: ' + out)
+})
+t('an empty export is a sentence, not an empty string', () => {
+  S.useBackend(fakeStore())
+  ok(S.exportRatings().length > 0)
+})
+t('ratings are bounded — old days fall off', () => {
+  const b = fakeStore(); S.useBackend(b)
+  for (let i = 1; i <= 40; i++) S.rate('U2-BA', 'got_it', `2026-01-${String(i).padStart(2, '0')}`)
+  ok(Object.keys(S.teacher().days).length <= 30, 'kept ' + Object.keys(S.teacher().days).length)
+})
+
+/* ---- P1-E3-S4 shared-device safety (storage half only) ---- */
+t('nothing stored names, numbers or identifies a child', () => {
+  const b = fakeStore(); S.useBackend(b)
+  S.recordAnswer('U2-BA', true); S.rate('U2-BA', 'got_it', '2026-09-01'); S.setPref('lang', 'es')
+  const blob = b.keys().map(k => b.getItem(k)).join(' ').toLowerCase()
+  for (const w of ['user', 'name', 'child', 'student', 'profile', 'id"', 'streak'])
+    ok(!blob.includes(w), `stored payload mentions "${w}": ` + blob)
+})
+
+S.useBackend()   // leave the module on a clean in-memory store
+
 
 console.log(`\n  ${pass} passed, ${fail} failed`)
 process.exit(fail ? 1 : 0)
